@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Projet{% endblock %}
+
+{% block body %}
+<div class="row">
+		<div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4">
+			<h5 class="title">Create new subject</h5>
+		</div>
+	</div>
+    {{ include('projet/_form.html.twig') }}
+
+{% endblock %}

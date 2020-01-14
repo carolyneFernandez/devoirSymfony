@@ -1,0 +1,29 @@
+{{ form_start(form) }}
+<div class="container form">
+<div class="row">
+	
+    <div class="col-sm-6">
+      <div class="col-sm-12 white-background">
+            {{ form_row(form.nom) }}
+            {{ form_row(form.prenom) }}
+            {{ form_row(form.age) }}
+     	  
+        <button class="btn btn-primary">{{ button_label|default('Save') }}</button> 
+        <a href="{{ path('intervenant_index') }}"><i class="fa fa-reply" aria-hidden="true"></i>back to list</a>
+      </div>
+       
+    </div>
+    <div class="col-sm-6">
+      <div class="col-sm-12 white-background">
+         <div class="formrigth">
+              <div class="form-check">
+                {{ form_row(form.matieres) }}
+              </div>
+                {{ form_widget(form) }}
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
+     
+{{ form_end(form) }}

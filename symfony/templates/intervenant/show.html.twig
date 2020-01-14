@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Intervenant{% endblock %}
+
+{% block body %}
+    <div>
+        <a href="{{ path('intervenant_index') }}"><i class="fa fa-reply-all" aria-hidden="true"></i>
+        back to list</a>
+
+    </div>
+    <a href="{{ path('intervenant_edit', {'id': intervenant.id}) }}">
+        <i class="fa fa-pencil" aria-hidden="true">Edit</i>  
+    </a>
+    {{ include('intervenant/_delete_form.html.twig') }}
+    <table class="table">
+        <thead class="header">
+            <tr><th colspan="2" >Detail Speker</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ intervenant.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ intervenant.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ intervenant.prenom }}</td>
+            </tr>
+            <tr>
+
+                <th>Age</th>
+                <td>{{ intervenant.age }}</td>
+            </tr>
+
+            <tr>
+                <th>Matieres</th>
+                <td>
+                 {% for matieres in intervenant.matieres %}
+                        {{matieres.nom }}
+                {% endfor %}
+
+                 </td>
+                  
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

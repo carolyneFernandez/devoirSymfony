@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}subject index{% endblock %}
+
+{% block body %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th  class="headerTable">Subject list</th>
+                <th>  
+                    <a href="{{ path('matiere_new') }}">
+                    <button type="button" class="btn btn-danger">
+                    <i class="fa fa-plus"></i>
+                    </button>  
+                    </a>
+
+                        <a href="{{ path('matiere_list_sansIntervenant') }}">
+                        <i class="fa fa-list" aria-hidden="true"></i></a>
+
+                </th>
+            </tr>
+            <tr class="header">
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for subject in matieres %}
+            <tr>
+                <td>{{ subject.nom }}</td>
+                <td>
+                    <a href="{{ path('matiere_show', {'id': subject.id}) }}">
+                        <button type="button" class="btn btn-primary">
+                        <i class="fa fa-eye"></i></button> </a>
+                    <a href="{{ path('matiere_edit', {'id': subject.id}) }}">
+                        <button type="button" class="btn btn-secondary">
+                        <i class="fa fa-pencil"></i>
+                         </button>
+                    </a>
+                   
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+</table>
+
+{% endblock %}

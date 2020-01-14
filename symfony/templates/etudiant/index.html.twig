@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Students list{% endblock %}
+
+{% block body %}
+
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th colspan="3" class="headerTable">Students list</th>
+                <th>  
+                    <a href="{{ path('etudiant_new') }}">
+                    <button type="button" class="btn btn-danger">
+                    <i class="fa fa-plus"></i>
+                    </button>  
+                    </a>
+                </th>
+            </tr>
+            <tr class="header">
+                <th>FirsName</th>
+                <th>LastName</th>
+                <th>Old</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for studiants in etudiants %}
+            <tr>
+                <td>{{ studiants.nom }}</td>
+                <td>{{ studiants.prenom }}</td>
+                <td>{{ studiants.age }}</td>
+                <td>
+                    <a href="{{ path('etudiant_show', {'id': studiants.id}) }}">
+                        <button type="button" class="btn btn-primary">
+                        <i class="fa fa-eye"></i></button> </a>
+                    <a href="{{ path('etudiant_edit', {'id': studiants.id}) }}">
+                        <button type="button" class="btn btn-secondary">
+                        <i class="fa fa-pencil"></i>
+                         </button>
+                    </a>
+                
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

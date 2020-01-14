@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Intervenant{% endblock %}
+
+{% block body %}
+			<h5 class="title">Edit Intervenant</h5>
+    {{ include('intervenant/_delete_form.html.twig') }}
+
+
+    {{ include('intervenant/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+{% endblock %}

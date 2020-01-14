@@ -1,0 +1,34 @@
+{{ form_start(form) }}
+<div class="container form">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="col-sm-12 white-background">
+
+
+        {{ form_row(form.nom) }}
+        {{ form_row(form.nombreEtudiant) }}
+        {{ form_row(form.note) }}
+        {{ form_row(form.matiere) }}	  
+        <button class="btn btn-primary">{{ button_label|default('Save') }}</button> 
+        <a href="{{ path('projet_index') }}"><i class="fa fa-reply" aria-hidden="true"></i>back to list</a>
+      </div>
+       
+    </div>
+    <div class="col-sm-6">
+      <div class="col-sm-12 white-background">
+         <h5>Students</h5>
+         <div class="formrigth">
+         
+          {% for formEtu in form.etudiants %}
+              <div class="form-check projet">
+                {{ form_row(formEtu) }}
+              </div>
+            {% endfor %}
+                {{ form_widget(form) }}
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{ form_end(form) }}
+

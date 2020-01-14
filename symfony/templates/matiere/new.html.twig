@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Matiere{% endblock %}
+
+{% block body %}
+<div class="container form">
+	<div class="row">
+		<div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4">
+			<h5 class="title">Create new subject</h5>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 white-background">
+             {{ include('matiere/_form.html.twig') }}
+             <a href="{{ path('matiere_index') }}"><i class="fa fa-reply" aria-hidden="true"></i>back to list</a>
+
+		</div>
+	</div>
+</div>
+{% endblock %}

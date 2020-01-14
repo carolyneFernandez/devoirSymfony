@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Projet{% endblock %}
+
+{% block body %}
+  <div class="row">
+      <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4">
+        <h5 class="title">Edit subject</h5>
+      </div>
+    </div>
+            {{ include('projet/_delete_form.html.twig') }}
+        {{ include('projet/_form.html.twig', {'button_label': 'Update'}) }}
+
+        </a>
+{% endblock %}

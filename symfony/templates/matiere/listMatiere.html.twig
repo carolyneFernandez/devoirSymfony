@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Matiere index{% endblock %}
+
+{% block body %}
+
+    <table class="table">
+             <thead class="header">
+                <tr>
+                    <th colspan="2">Matter without speaker </th>
+                    <th><a href="{{ path('matiere_index') }}"><i class="fa fa-reply-all" aria-hidden="true"></i>
+    back to list</a></th>
+                </tr>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Intervenant</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for matiere in matieres %}
+            <tr>
+                <td>{{ matiere.id }}</td>
+                <td>{{ matiere.nom }}</td>
+                 <td>
+                {% if matiere.idintervenant.nom is not defined %}
+                    No hay intervenant
+                {% else %}
+                    {{ matiere.idintervenant.nom }}
+
+                {% endif %}
+
+                </td>
+            
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+</table>
+{% endblock %}

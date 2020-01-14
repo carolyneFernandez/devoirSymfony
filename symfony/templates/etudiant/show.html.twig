@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etudiant{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div>
+            <a href="{{ path('etudiant_index') }}">
+            <i class="fa fa-reply-all" aria-hidden="true"></i>
+            back to list</a>
+
+        </div>
+        <div>
+        <a href="{{ path('etudiant_edit', {'id': etudiant.id}) }}">
+            <i class="fa fa-pencil" aria-hidden="true">Edit</i>  
+        </a>
+        
+            {{ include('etudiant/_delete_form.html.twig') }}
+        </div>
+
+    <div class="row">
+        <div class="col-sm">
+            <table class="table">
+                <thead class="header">
+                    <tr><th colspan="2" >Detail Student</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ etudiant.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Nom</th>
+                        <td>{{ etudiant.nom }}</td>
+                    </tr>
+                    <tr>
+                        <th>Prenom</th>
+                        <td>{{ etudiant.prenom }}</td>
+                    </tr>
+                    <tr>
+                        <th>Age</th>
+                        <td>{{ etudiant.age }}</td>
+                    </tr>
+                    <tr>
+                        <th>Moyenne</th>
+                        <td>{{ average }}</td>
+                    </tr>
+                </tbody>
+                </table>
+        </div>
+        <div class="col-sm">
+            <table class="table">
+                <thead class="header">
+                    <tr><th colspan="4">Detail project associated</th></tr>
+                </thead>
+                <tr>
+                    <th>Id</th>
+                    <th>MaxStudents</th>
+                    <th>Name</th>
+                    <th>Note</th>
+                </tr>
+                {% for project in etudiant.projets %}
+                    <tr>
+                        <td>{{ project.id }}</td>
+                        <td>{{ project.nombreEtudiant }}</td>
+                        <td>{{ project.nom }}</td>
+                        <td>
+                            {% if project.note == null %}
+                                not defined yet
+                            {% else %}
+                                {{ project.note }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4">none</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    </div>
+
+
+ 
+{% endblock %}
